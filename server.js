@@ -13,9 +13,9 @@ app.use(cors({
 app.use(cors());
 app.use(express.json());
 
-// Initialize Supabase client with environment variables
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_KEY;
+// Initialize Supabase client with your specific credentials
+const supabaseUrl = 'https://pvclfllgdfcyodjxlfsc.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB2Y2xmbGxnZGZjeW9kanhsZnNjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE4NjkzOTUsImV4cCI6MjA1NzQ0NTM5NX0.dCUqfP36X9Za8otSLVjBmq0-PfMSPrQcd6mYT-oBXZw';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 // API endpoint to fetch core members in the order they are stored
@@ -215,11 +215,6 @@ app.delete('/api/upcoming-events/:id', async (req, res) => {
     console.error('Error deleting event:', err);
     res.status(500).json({ error: 'Failed to delete event' });
   }
-});
-
-// Add a route for the root URL
-app.get('/', (req, res) => {
-  res.send('Welcome to the API');
 });
 
 app.listen(PORT, () => {
